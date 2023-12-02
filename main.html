@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: #8fbcec;">Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            text-size-adjust: auto 10%;
+            background-image: url('https://repository-images.githubusercontent.com/474898970/819380e3-5f5a-45d7-96a4-ce466fb94912');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+
+        }
+
+        #content {
+            max-width: 600px;
+            margin: 2em auto;
+            padding: 1em;
+        }
+
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: hsl(0, 0%, 100%);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(174, 142, 142, 0.1);
+            padding: 20px;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5em;
+        }
+
+        h1 {
+            color: rgb(7, 11, 13)
+        }
+
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 0.5em;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3ead41;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(39, 34, 41);
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: #16041d;">Sentiment Analysis of Lockdown due to COVID-19 in USA
+        <br>
+        <h2> Based on 2020 Apr-Jun twitter dataset</h2>
+    </h1>
+    <textarea id="inputText" placeholder="Enter text for sentiment analysis"></textarea><br>
+    <button onclick="predictSentiment()">Predict Sentiment</button>
+    <p id="result"></p>
+
+    <footer>
+        <p>&copy; 2023 Sentiment Analysis</p>
+    </footer>
+    <script>
+        function predictSentiment() {
+            var inputText = document.getElementById('inputText').value;
+
+            // Make an AJAX request to your backend for prediction
+            // Here, you can use technologies like Fetch API or libraries like Axios
+
+            // For simplicity, let's assume there's a function predictSentimentBackend
+            // that sends the input to your backend and receives the prediction
+            // Replace 'YOUR_BACKEND_ENDPOINT' with the actual endpoint
+            predictSentimentBackend(inputText, 'http://127.0.0.1:5000/predict');
+        }
+
+        function predictSentimentBackend(inputText, backendEndpoint) {
+            fetch(backendEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: inputText }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Display the prediction result
+                    document.getElementById('result').innerText = 'Predicted Sentiment: ' + data.sentiment;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+
+    </script>
+</body>
+
+</html>
