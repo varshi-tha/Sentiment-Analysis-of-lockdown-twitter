@@ -6,3 +6,13 @@ Develop a machine learning model for sentiment analysis capable of classifying t
 Train the sentiment analysis model using an a Multinomial Naive Bayes machine learning algorithm.
 It also includes a simple front end for created ML model.
 
+python packages:
+numpy
+pandas
+scikit-learn
+matplotlib
+nltk
+seaborn
+
+also; 
+flask,flask_cors
