@@ -1,3 +1,5 @@
 #DATASET:
 #https://www.kaggle.com/datasets/arunavakrchakraborty/covid19-twitter-dataset
 #There are 3 sets of data you can use anyone of them.
+#*The dataset was preprocessed before using it for the model since it was a very large dataset.
+# the dataset used is uploaded in this repo
