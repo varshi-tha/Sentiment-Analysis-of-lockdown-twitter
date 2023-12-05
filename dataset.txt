@@ -2,4 +2,4 @@
 #https://www.kaggle.com/datasets/arunavakrchakraborty/covid19-twitter-dataset
 #There are 3 sets of data you can use anyone of them.
 #*The dataset was preprocessed before using it for the model since it was a very large dataset.
-# the dataset used is uploaded in this repo
+# all the neutral tweets where deleted from the dataset before using it for this project, only positive and negative sentiments in the dataset were considered.
